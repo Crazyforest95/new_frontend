@@ -1,0 +1,54 @@
+@import '~antd/lib/style/themes/default.less';
+
+.extraContent {
+  display: flex;
+  white-space: nowrap;
+  .statItem {
+    flex: 1;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    > p:first-child {
+      margin-bottom: 4px;
+      color: #3f51b5;
+      font-size: 22px;
+      line-height: 32px;
+    }
+    > p {
+      margin: 0;
+      color: #101010;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &:not(:last-child) {
+      border-right: 1px solid #bbb;
+    }
+  }
+}
+
+.step-card {
+  display: flex;
+  justify-content: space-around;
+  .step {
+    width: 30px;
+    height: 30px;
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #1890ff;
+    border-radius: 15px;
+  }
+}
+
+.date {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.useHelp {
+  padding: 10px 0;
+  color: #101010;
+  font-weight: 500;
+  font-size: 18px;
+}

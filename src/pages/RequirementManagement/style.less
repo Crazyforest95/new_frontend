@@ -1,0 +1,279 @@
+@import '~antd/lib/style/themes/default.less';
+
+.card {
+  margin-bottom: 24px;
+}
+
+.heading {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.steps:global(.ant-steps) {
+  max-width: 750px;
+  margin: 16px auto;
+}
+
+.errorIcon {
+  margin-right: 24px;
+  color: @error-color;
+  cursor: pointer;
+  i {
+    margin-right: 4px;
+  }
+}
+
+.errorPopover {
+  :global {
+    .ant-popover-inner-content {
+      min-width: 256px;
+      max-height: 290px;
+      padding: 0;
+      overflow: auto;
+    }
+  }
+}
+
+.errorListItem {
+  padding: 8px 16px;
+  list-style: none;
+  border-bottom: 1px solid @border-color-split;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background: @primary-1;
+  }
+  &:last-child {
+    border: 0;
+  }
+  .errorIcon {
+    float: left;
+    margin-top: 4px;
+    margin-right: 12px;
+    padding-bottom: 22px;
+    color: @error-color;
+  }
+  .errorField {
+    margin-top: 2px;
+    color: @text-color-secondary;
+    font-size: 12px;
+  }
+}
+
+.editable {
+  td {
+    padding-top: 13px !important;
+    padding-bottom: 12.5px !important;
+  }
+}
+
+// custom footer for fixed footer toolbar
+.advancedForm + div {
+  padding-bottom: 64px;
+}
+
+.advancedForm {
+  :global {
+    .ant-form .ant-row:last-child .ant-form-item {
+      margin-bottom: 24px;
+    }
+    .ant-table td {
+      transition: none !important;
+    }
+  }
+}
+
+.optional {
+  color: @text-color-secondary;
+  font-style: normal;
+}
+.tableList {
+  .tableListOperator {
+    margin-bottom: 16px;
+    button {
+      margin-right: 8px;
+    }
+  }
+}
+
+.tableListForm {
+  :global {
+    .ant-form-item {
+      display: flex;
+      margin-right: 0;
+      margin-bottom: 24px;
+      > .ant-form-item-label {
+        width: auto;
+        padding-right: 8px;
+        line-height: 32px;
+      }
+      .ant-form-item-control {
+        line-height: 32px;
+      }
+    }
+    .ant-form-item-control-wrapper {
+      flex: 1;
+    }
+  }
+  .submitButtons {
+    display: block;
+    margin-bottom: 24px;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+}
+
+.inputButton {
+  margin-left: 20px;
+}
+
+.statisticsText {
+  text-align: center;
+}
+
+.cardActived {
+  border-top: 4px solid #2979FF;
+}
+.cardDiactived {
+  border-top: 4px solid #BBBBBB;
+}
+.cardActived > div, .cardDiactived > div {
+  padding: 20px 0px 0px 0px;
+}
+.cardActived h2:nth-child(1) {
+  color: #2979FF;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0px;
+}
+.cardDiactived h2:nth-child(1) {
+  color: #BBBBBB;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0px;
+}
+.requirementStatus {
+  padding: 5px;
+  color: #fafafa;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 1px solid rgba(255, 255, 255, 0);
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.cardActived .requirementStatus {
+  background-color: #2979FF;
+}
+.cardDiactived .requirementStatus {
+  background-color: #BBBBBB;
+}
+.requirementBadge {
+  min-width: 30px;
+  min-height: 30px;
+  background-color: #FF2525;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2;
+  color: white;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+}
+.requirementFRow {
+  padding: 5px 20px 10px;
+}
+.schedulesRow > div {
+  text-align: center;
+  padding: 8px;
+  border: .5px solid #fafafa;
+  background-color: #DBDBDB;
+}
+.moreIcon {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  font-size: 20px;
+}
+.formSubTitle {
+  color: #101010 100%;
+  font-family: SourceHanSansSC-bold;
+  font-weight: bold;
+  size: 14px;
+}
+.mb0 {
+  margin-bottom: 0px;
+}
+.mb1 {
+  margin-bottom: 13px;
+}
+@media screen and (max-width: @screen-lg) {
+  .tableListForm :global(.ant-form-item) {
+    margin-right: 24px;
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .tableListForm :global(.ant-form-item) {
+    margin-right: 8px;
+  }
+}
+.search {
+  margin-bottom: 16px;
+}
+.searchButton {
+  width: 300px;
+  margin: 8px;
+}
+
+.requirementAll {
+  display: flex;
+  text-align: center;
+  .cardList {
+    flex: 1;
+    border-right: 1px solid #bbb;
+    &:last-child {
+      flex: 1;
+      border-right: none;
+    }
+  }
+}
+
+.detailCard {
+  margin-top: 20px;
+}
+.chartBorder {
+  border-right: 1px solid #bbb;
+}
+
+.cardTitle {
+  color: #2979ff !important;
+}
+
+.cardTitleClosed {
+  color: #bbbbbb !important;
+}
+
+@media (max-width: 1300px) {
+  .cardBtnTitle {
+    font-size: 10px;
+  }
+
+  .cardTitle, .cardTitleClosed {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cardBtnTitle {
+    font-size: 12px;
+  }
+
+  .cardTitle, .cardTitleClosed {
+    font-size: 18px;
+  }
+}

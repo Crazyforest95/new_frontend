@@ -1,0 +1,130 @@
+@import '~antd/lib/style/themes/default.less';
+
+.main {
+  display: flex;
+  overflow-x: scroll;
+  //overflow-scrolling: initial;
+}
+
+.requirementState {
+  width: 350px;
+  //max-height: 70vh;
+  margin-right: 20px;
+  //height: 170vh;
+  //overflow-y: scroll;
+
+  //overflow-x: visible;
+  .scroll {
+    height: 50vh;
+    overflow-y: scroll;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  .list {
+    margin-bottom: 10px;
+    border-left-width: 2px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .time {
+      margin-top: 15px;
+    }
+    .text {
+      display: flex;
+      justify-content: space-between;
+      line-height: 20px;
+      .name {
+        width: 100px;
+      }
+    }
+    .interviewTime {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+  }
+  .addResume {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+.mV5 {
+  margin: 5px !important;
+}
+.mB8 {
+  margin-bottom: 8px;
+}
+.mL10 {
+  margin-left: 10px;
+}
+.mB10 {
+  margin-bottom: 10px;
+}
+.mL20 {
+  margin-left: 20px;
+}
+.mB20 {
+  margin-bottom: 20px;
+}
+.borderBlue {
+  border: 1px solid #2979FF;
+}
+
+.cardBodyTitle {
+  font-size: 18px !important;
+}
+.p10 {
+  padding: 5px 10px;
+}
+.pB15 {
+  padding-bottom: 15px;
+}
+.checkBox {
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-right: 10px;
+  :global(.ant-checkbox-inner) {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  :global(.ant-checkbox-inner:after) {
+    height: 15px !important;
+  }
+}
+.cardRightBorder {
+  border-right: 1px solid #BBBBBB;
+}
+.textCenter {
+  text-align: center;
+}
+
+.compareTable {
+  width: 100%;
+  border: 1px solid #cccccc;
+  th, td {
+    border: 1px solid #cccccc;
+    padding: 10px 5px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1400px) {
+  .resumeCardTitle {
+    font-size: 16px;
+  }
+
+  .resumeCardLabel {
+    font-size: 12px;
+  }
+
+  .resumeCardNum {
+    font-size: 14px !important;
+  }
+}
+
+.countTrackCard {
+  margin-bottom: 20;
+  border: 2px solid #2979ff;
+}
+
