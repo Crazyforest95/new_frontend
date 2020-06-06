@@ -95,7 +95,7 @@ class Detail extends PureComponent {
               <Row className={classes.p10}>
                 <Col md={5}><Text>经验：{detail.experience}</Text></Col>
                 <Col md={5}><Text>学历: {detail.education}</Text></Col>
-                <Col md={5}><Text>薪资范围: {detail.unit_price}</Text></Col>
+                <Col md={5}><Text>薪资单价: {detail.unit_price}</Text></Col>
               </Row>
               <Row className={classes.p10}>
                 <Col md={24}>

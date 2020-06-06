@@ -24,7 +24,7 @@ const { Text } = Typography;
 class RequirementManagementList extends PureComponent {
   state = {
     page: 1,
-    per_page: 10,
+    // per_page: 10,
     // status: 'open',
   };
 
@@ -43,7 +43,7 @@ class RequirementManagementList extends PureComponent {
     this.setState(
       {
         page: 1,
-        per_page: 10,
+        // per_page: 10,
         status,
       },
       () => this.getList()
@@ -250,7 +250,7 @@ class RequirementManagementList extends PureComponent {
               <DropdownMenu
                 menuList={[
                   colse,
-                  <a onClick={() => this.delete(data.id)} style={{color:'#1890FF'}}>删除</a>,
+                  <a onClick={() => this.delete(data.id)} style={{ color: '#1890FF' }}>删除</a>,
                   <Update id={data.id} onSuccess={this.getList} />,
                 ]}
               />
@@ -260,7 +260,7 @@ class RequirementManagementList extends PureComponent {
       },
     ];
 
-// // // // //
+    // // // // //
 
     const title = (
       <div>
@@ -299,8 +299,8 @@ class RequirementManagementList extends PureComponent {
         </Card>
         <Card
           bordered={false}
-          title={<Add add={this.add} onSuccess={this.getList}/>}
-          extra={<a style={{color: '#2979FF'}} onClick={this.hide_unread_nums}>已读所有消息</a>}
+          title={<Add add={this.add} onSuccess={this.getList} />}
+          extra={<a style={{ color: '#2979FF' }} onClick={this.hide_unread_nums}>已读所有消息</a>}
         >
           <div>
             <RequirementCard lists={list.data} hide_unread_nums={this.hide_unreadnums} action={this.getList} />

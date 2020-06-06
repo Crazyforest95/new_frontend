@@ -5,6 +5,7 @@ import request from '@/utils/request';
 import API from '@/api';
 
 export async function getList(params) {
+  console.log('params: ', params)
   return request(`${API.requirementManagement.list}?${stringify(params)}`);
 }
 

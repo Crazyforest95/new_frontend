@@ -42,7 +42,7 @@ const renewCycle = {
 class RequireDetailList extends PureComponent {
   state = {
     page: 1,
-    per_page: 10,
+    // per_page: 10,
   };
 
   componentDidMount() {}

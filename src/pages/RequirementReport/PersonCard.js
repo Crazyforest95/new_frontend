@@ -79,8 +79,8 @@ export default class PersonCard extends React.PureComponent {
                 强烈推荐
               </span>
             </span>
-            <Text style={{ marginRight: 20 }}>推荐人：刘硕</Text>
-            <Text>推荐时间: 2019.5.24</Text>
+              <Text style={{ marginRight: 20 }}>{personData.recommend_person}</Text>
+              <Text>推荐时间: {personData.recommend_time}</Text>
           </React.Fragment>
         }
         // style={{ border: '2px solid #2979ff', marginBottom: 15, overflow: 'hidden' }}

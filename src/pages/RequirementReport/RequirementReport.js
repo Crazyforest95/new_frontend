@@ -119,6 +119,8 @@ class RequirementReport extends React.PureComponent {
 
     searchSelectedItems: [],
     isSearched: false,
+
+    sortKey: "time"
   };
 
   async componentWillMount() {
@@ -1558,6 +1560,23 @@ class RequirementReport extends React.PureComponent {
     });
   };
 
+  sortPersonData = (personData) => {
+    if (this.state.sortKey === "time") return
+    else if (this.state.sortKey === "overall_score")
+      personData.sort(function (a, b) { return b.interview_score + b.written_score - a.interview_score - a.written_score });
+    else if (this.state.sortKey === "written_score")
+      personData.sort(function (a, b) { return b.written_score - a.written_score });
+    else if (this.state.sortKey === "interview_score")
+      personData.sort(function (a, b) { return b.interview_score - a.interview_score });
+    return personData;
+  }
+
+  buttonActive = (e) => {
+    let buttons = document.querySelectorAll(".sortButtons > .ant-btn")
+    for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove('ant-btn-primary')
+    e.currentTarget.classList.add("ant-btn-primary");
+  }
+
   render() {
     const urlParams = new URL(window.location.href);
     const path = urlParams.pathname;
@@ -2785,14 +2804,13 @@ class RequirementReport extends React.PureComponent {
           </Form>
         </Card>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 15 }}>
-          <div>
+          <div className="sortButtons">
             <Text>排序：</Text>
-            <Button type="primary" style={{ marginRight: 20 }}>
-              更新时间
+            <Button type="primary" onClick={(e) => { this.setState({ sortKey: "time" }), this.buttonActive(e); }} style={{ marginRight: 20 }}>更新时间
             </Button>
-            <Button style={{ marginRight: 20 }}>总成绩排名</Button>
-            <Button style={{ marginRight: 20 }}>笔试成绩排名</Button>
-            <Button>面试成绩排名</Button>
+            <Button onClick={(e) => { this.setState({ sortKey: "overall_score" }), this.buttonActive(e); }} style={{ marginRight: 20 }}>总成绩排名</Button>
+            <Button onClick={(e) => { this.setState({ sortKey: "written_score" }), this.buttonActive(e); }} style={{ marginRight: 20 }}>笔试成绩排名</Button>
+            <Button onClick={(e) => { this.setState({ sortKey: "interview_score" }), this.buttonActive(e); }}>面试成绩排名</Button>
           </div>
           <div>
             <CompareResumesModal
@@ -2808,6 +2826,7 @@ class RequirementReport extends React.PureComponent {
           </div>
         </div>
         {this.state.activeItems.map((______item, idx) => (
+          this.sortPersonData(personData),
           <PersonData
             idx={idx}
             personData={personData[______item - 1]}
