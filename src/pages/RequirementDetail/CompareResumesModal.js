@@ -166,7 +166,7 @@ export default class CompareResumesModal extends React.PureComponent {
                 {this.state.showTotalResult ?
                   <tr>
                     <td>总成绩</td>
-                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].totalmark}</td>)}
+                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].totalmark === "None" ? "" : resumes[resume.id].totalmark}</td>)}
                   </tr>
                   :
                   <></>
@@ -175,7 +175,7 @@ export default class CompareResumesModal extends React.PureComponent {
                 {this.state.showWrittenResult ?
                   <tr>
                     <td>笔试成绩</td>
-                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].written_result}</td>)}
+                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].written_result === "None" ? "" : resumes[resume.id].written_result}</td>)}
                   </tr>
                   :
                   <></>
@@ -184,7 +184,7 @@ export default class CompareResumesModal extends React.PureComponent {
                 {this.state.showInterviewResult ?
                   <tr>
                     <td>面试成绩</td>
-                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].interview_result}</td>)}
+                    {selectedResumes.map((resume, idx) => <td key={idx}>{resumes[resume.id].interview_result === "None" ? "" : resumes[resume.id].interview_result}</td>)}
                   </tr>
                   :
                   <></>

@@ -2828,6 +2828,7 @@ class RequirementReport extends React.PureComponent {
         {this.state.activeItems.map((______item, idx) => (
           this.sortPersonData(personData),
           <PersonData
+            key={idx}
             idx={idx}
             personData={personData[______item - 1]}
             resumeCheckHandle={this.resumeCheckHandle}

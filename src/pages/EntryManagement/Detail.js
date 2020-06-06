@@ -32,7 +32,7 @@ class Detail extends React.Component {
     /*eslint-disable*/
     const {
       detail: { engineer = {}, pm = {}, start_date },
-      detail,
+      职位名称detail,
       title,
     } = this.props;
     const formItemLayout = {

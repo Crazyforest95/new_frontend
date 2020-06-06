@@ -59,11 +59,11 @@ const status = {
   dailyPerDataIp: requirementManagement.dailyPerDataIp,
   dailyPerDataOp: requirementManagement.dailyPerDataOp,
   interviewTableData: requirementManagement.interviewTableData,
-  todayDate: requirementManagement.todayDate, 
+  todayDate: requirementManagement.todayDate,
   interNum: requirementManagement.interNum,
 }))
 class RequirementDetail extends Component {
-  
+
   state = {
     showChartBtn: false,
     logs: [],
@@ -79,9 +79,9 @@ class RequirementDetail extends Component {
   async componentWillMount() {
     this.getProjects();
     let data = [];
-    for(let i = 0; i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       let rowData = [];
-      for(let j = 0; j < 7; j++) {
+      for (let j = 0; j < 7; j++) {
         if (i === 0 && j < 3) {
           rowData.push({
             online: true,
@@ -96,7 +96,7 @@ class RequirementDetail extends Component {
       }
       data.push(rowData);
     }
-    this.setState({writtenTableData: data});
+    this.setState({ writtenTableData: data });
     this.getLogs(this.props.todayDate);
   }
 
@@ -105,18 +105,19 @@ class RequirementDetail extends Component {
     const urlParams = new URL(window.location.href);
     const path = urlParams.pathname;
     const array = path.split("/");
-    const id = array[array.length-1];
-
+    const id = array[array.length - 1];
     const { dispatch } = this.props;
 
     dispatch({
       type: 'requirementManagement/getDetail',
-      payload: { 
+      payload: {
         id,
         schema: 'OfferDetailSchema',
-       },
+      },
     });
   };
+
+
   // // // // //
 
   // 删除
@@ -240,7 +241,7 @@ class RequirementDetail extends Component {
       },
       callback: datas => {
         if (datas) {
-          
+
           message.success('删除成功');
         } else {
           message.error('错误');
@@ -254,12 +255,12 @@ class RequirementDetail extends Component {
     const urlParams = new URL(window.location.href);
     const path = urlParams.pathname;
     const array = path.split("/");
-    const id = array[array.length-1];
+    const id = array[array.length - 1];
 
     var date1 = '';
-    if (typeof date ==='undefined')
+    if (typeof date === 'undefined')
       date1 = 'today';
-    else 
+    else
       date1 = date;
 
     const { dispatch } = this.props;
@@ -272,7 +273,7 @@ class RequirementDetail extends Component {
       },
       callback: datas => {
         if (datas) {
-          this.setState({logs: datas.data}, this.render);
+          this.setState({ logs: datas.data }, this.render);
         } else {
           message.error('错误');
         }
@@ -311,7 +312,7 @@ class RequirementDetail extends Component {
       return;
     }
 
-    const { dispatch, match: { params: {id}}} = this.props;
+    const { dispatch, match: { params: { id } } } = this.props;
     dispatch(routerRedux.push(`../requirementReport/${id}`));
   }
 
@@ -344,7 +345,7 @@ class RequirementDetail extends Component {
         break;
       case 3:
         result = this.props.dailyPerDataOp;
-    
+
       default:
         break;
     }
@@ -366,38 +367,40 @@ class RequirementDetail extends Component {
         break;
       case 3:
         result = this.props.dailyTotalDataOp;
-    
+
       default:
         break;
     }
     return result;
-  } 
+  }
   // // // // //
 
   render() {
     const { list, detail, loading } = this.props;
-    
+
+    // console.log('props: ', this.props)
+
     // cobra-55555 -20-04-17
     const { project_detail } = this.props;
     const { offer_data_list } = this.props;
     const { count_tracks } = this.props;
 
-    const { interviewTableData} = this.props;
+    const { interviewTableData } = this.props;
     const { interNum } = this.props;
     const { todayDate } = this.props;
 
     const urlParams = new URL(window.location.href);
     const path = urlParams.pathname;
     const array = path.split("/");
-    const id = array[array.length-1];
+    const id = array[array.length - 1];
     // // // // //
-    
-    const { 
-      showChartBtn, 
-      writtenTableData, 
-      writtenOnlineDeveloper, 
-      writtenTotalDeveloper, 
-      interviewOnlineDeveloper, 
+
+    const {
+      showChartBtn,
+      writtenTableData,
+      writtenOnlineDeveloper,
+      writtenTotalDeveloper,
+      interviewOnlineDeveloper,
       interviewTotalDeveloper,
       selectedResumes,
       activeCountedTrackSection   // chat item (resume collection, written pass num, ...)
@@ -415,27 +418,27 @@ class RequirementDetail extends Component {
         <Button icon="left" onClick={this.goBack}>
           返回
         </Button>
-        <div style={{ marginTop: '12px', fontSize: 14, color: '#2979FF' }}><a href="/requirementManagement">需求列表</a> / <span style={{color: 'black'}}>需求详情</span></div>
+        <div style={{ marginTop: '12px', fontSize: 14, color: '#2979FF' }}><a href="/requirementManagement">需求列表</a> / <span style={{ color: 'black' }}>需求详情</span></div>
       </div>
     );
 
-    if(typeof project_detail === 'undefined' || typeof offer_data_list === 'undefined') {
+    if (typeof project_detail === 'undefined' || typeof offer_data_list === 'undefined') {
       return (<div></div>);
     }
-    
+
     return (
       <PageHeaderWrapper title={title} loading={loading} hiddenBreadcrumb>
         <Card title="基本信息"
-          headStyle={ styles.cardHeadStyle }
+          headStyle={styles.cardHeadStyle}
           bodyStyle={{ paddingLeft: 30, paddingRight: 30 }}
           size="small"
           className={classes.mB20}
           extra={<div>
             <EditRequirementModal data={project_detail} />
-            <CloseRequirementModal id={id}/>
+            <CloseRequirementModal id={id} />
           </div>}
         >
-          <Detail detail={ project_detail } />
+          <Detail detail={project_detail} />
         </Card>
         <Card title="推荐简历"
           headStyle={styles.cardHeadStyle}
@@ -443,12 +446,12 @@ class RequirementDetail extends Component {
           className={classes.mB20}
           extra={<Button size="small" onClick={() => this.toRequirementReport()}>更多简历</Button>}
         >
-          <div style={{marginBottom: '10px'}}>
-            <Resumes lists={ offer_data_list } resumeCheckHandle={this.resumeCheckHandle} selectedResumes={selectedResumes} />
+          <div style={{ marginBottom: '10px' }}>
+            <Resumes lists={offer_data_list} resumeCheckHandle={this.resumeCheckHandle} selectedResumes={selectedResumes} />
           </div>
           <Row>
             <Col offset={8} md={8}>
-              <CompareResumesModal activedResumeNums={selectedResumes.length} selectedResumes={selectedResumes} resumes={offer_data_list}/>
+              <CompareResumesModal activedResumeNums={selectedResumes.length} selectedResumes={selectedResumes} resumes={offer_data_list} />
             </Col>
           </Row>
         </Card>
@@ -458,7 +461,7 @@ class RequirementDetail extends Component {
           size="small">
           <Row gutter={16}>
             <Col md={10}>
-              <CountTracks count_tracks={count_tracks} changeCountTrackSection={this.changeCountTrackSection}/>
+              <CountTracks count_tracks={count_tracks} changeCountTrackSection={this.changeCountTrackSection} />
               <Card style={{
                 border: '2px solid #2979ff',
                 marginTop: 12,
@@ -478,51 +481,51 @@ class RequirementDetail extends Component {
                 }}></div>
                 <AsyncLoadBizCharts>
                   <></>
-                  {showChartBtn ? 
-                    <ResumeCollectionBarChart 
+                  {showChartBtn ?
+                    <ResumeCollectionBarChart
                       title="每日收集简历数"
-                      data={ this.renderPerChatSwitch(activeCountedTrackSection) }
-                      height={340} 
+                      data={this.renderPerChatSwitch(activeCountedTrackSection)}
+                      height={340}
                       btnTxt="查看累积统计"
                       actionBtn={this.actionChartBtn}
-                    /> : 
-                    <ResumeCollectionBarChart 
-                      title="累计收集简历数" 
-                      data={ this.renderTotalChatSwitch(activeCountedTrackSection) }
-                      height={340} 
+                    /> :
+                    <ResumeCollectionBarChart
+                      title="累计收集简历数"
+                      data={this.renderTotalChatSwitch(activeCountedTrackSection)}
+                      height={340}
                       btnTxt="查看日统计"
                       actionBtn={this.actionChartBtn}
                     />
                   }
                 </AsyncLoadBizCharts>
               </Card>
-              <HierachicalChart 
+              <HierachicalChart
                 title="全流程招聘图示"
-                count_tracks={ count_tracks }
+                count_tracks={count_tracks}
               />
             </Col>
             <Col md={14}>
-              <Card className={[classes.mB20, classes.borderBlue]} 
+              <Card className={[classes.mB20, classes.borderBlue]}
                 size="small"
-                title={<Title level={4}>{ todayDate } 招聘进展跟踪</Title>}
-                extra={<DatePicker defaultValue={moment(todayDate, 'YYYY-MM-DD')} 
-                // dateFormat="YYYY-MM-DD"
-                onChange={(date) => this.onChangeDate(date)}/>}
+                title={<Title level={4}>{todayDate} 招聘进展跟踪</Title>}
+                extra={<DatePicker defaultValue={moment(todayDate, 'YYYY-MM-DD')}
+                  // dateFormat="YYYY-MM-DD"
+                  onChange={(date) => this.onChangeDate(date)} />}
               >
-                <div style={{overflowY: 'auto', maxHeight: 350}}>
+                <div style={{ overflowY: 'auto', maxHeight: 350 }}>
                   {this.state.logs.map((log, idx) => (<p key={idx} className={classes.mB8}>{log}</p>))}
                 </div>
               </Card>
               <React.Suspense fallback={null}>
                 <MonitoringTable
                   title="人员笔试监控"
-                  tableData={ interviewTableData }
-                  numData = { interNum }
+                  tableData={interviewTableData}
+                  numData={interNum}
                 />
                 <MonitoringTable
                   title="人员面试监控"
-                  tableData={ interviewTableData }
-                  numData = { interNum }
+                  tableData={interviewTableData}
+                  numData={interNum}
                 />
               </React.Suspense>
             </Col>

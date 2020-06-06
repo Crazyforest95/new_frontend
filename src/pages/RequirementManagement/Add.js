@@ -165,6 +165,8 @@ class Add extends React.Component {
     const prop = this.props;
     const { resetFields } = prop.form;
     const { onSuccess } = this.props;
+    console.log('props: ', this.props)
+
     await this.setState({
       visible: false,
     });
@@ -250,7 +252,7 @@ class Add extends React.Component {
         >
           <Form>
             <Title level={4} className={styles.formSubTitle}>1 需求基本信息</Title>
-            <Row gutter={{ md: 8, lg: 20, xl: 40}}>
+            <Row gutter={{ md: 8, lg: 20, xl: 40 }}>
               <Col span={21}>
                 <FormItem label="公司" {...formItemLayout} className={styles.mb0}>
                   <Text>中信建投有限公司</Text>
@@ -264,7 +266,7 @@ class Add extends React.Component {
                     rules: [{
                       required: true,
                       message: '需求名称不可为空',
-                    },{
+                    }, {
                       max: 64,
                       message: '需求名称最大长度为64',
                     }],
@@ -296,7 +298,7 @@ class Add extends React.Component {
                   {getFieldDecorator('service_type', {
                     rules: [
                       { required: true, message: '需求详情不可为空' },
-                      
+
                     ],
                   })(<Select>
                     {this.state.service_types.map((service_type, idx) => {
@@ -318,7 +320,7 @@ class Add extends React.Component {
                 </FormItem>
               </Col>
             </Row>
-            <Divider dashed style={{marginTop: 10, marginBottom: 10}}/>
+            <Divider dashed style={{ marginTop: 10, marginBottom: 10 }} />
             <Title level={4} className={styles.formSubTitle}>2 职位要求</Title>
             <Row gutter={{ md: 8, lg: 20, xl: 40 }}>
               <Col span={21}>
@@ -330,7 +332,7 @@ class Add extends React.Component {
                     }],
                   })(
                     <Select
-                      // onChange={this.getExpreience}
+                    // onChange={this.getExpreience}
                     >
                       {this.state.experiences.map((experience, idx) => {
                         return <Option key={idx} value={experience}>{experience}</Option>;
@@ -370,7 +372,7 @@ class Add extends React.Component {
                     rules: [{
                       required: true,
                       message: '计费标准不可为空',
-                    },{
+                    }, {
                       message: '需求人数不能为负数',
                       pattern: /^\d+(\.\d+)?$/,
                     }, {
@@ -392,7 +394,7 @@ class Add extends React.Component {
                     rules: [{
                       required: true,
                       message: '职位不可为空',
-                    },{
+                    }, {
                       max: 2000,
                       message: '需求详情最大长度为2000',
                     }],
@@ -402,7 +404,7 @@ class Add extends React.Component {
                 </FormItem>
               </Col>
             </Row>
-            <Divider dashed style={{marginTop: 10, marginBottom: 10}}/>
+            <Divider dashed style={{ marginTop: 10, marginBottom: 10 }} />
             <Title level={4} className={styles.formSubTitle}>3 服务要求</Title>
             <Row gutter={{ md: 8, lg: 20, xl: 40 }}>
               <Col span={21}>
