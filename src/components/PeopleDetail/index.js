@@ -64,13 +64,13 @@ class PeopleDetail extends Component {
       year_month: yearMonth,
       location: { pathname },
     } = this.props;
-    
+
     if (detail) {
-      if(detail.debug) {
-        const {disError} = this.state;
+      if (detail.debug) {
+        const { disError } = this.state;
         if (disError === 0) {
           message.info('存在订单周期未覆盖的日期');
-          this.setState({disError: 1});
+          this.setState({ disError: 1 });
         }
         return (<Button type="primary" block onClick={this.showModal}>人员详情</Button>);
       }
@@ -89,8 +89,8 @@ class PeopleDetail extends Component {
             }}
           />
         ) : (
-          <span>{yearMonth}</span>
-        )}
+            <span>{yearMonth}</span>
+          )}
 
         {detail && (detail.payment.status !== 'payed' && detail.payment.status !== 'checked') ? (
           <i style={{ color: 'red', fontStyle: 'normal' }}>(待确认结算)</i>
@@ -103,16 +103,16 @@ class PeopleDetail extends Component {
 
     return (
       <>
-        { isRequirement!==true ? 
+        {isRequirement !== true ?
           <span>
             <span onClick={this.showModal} className={styles.linkTitle}>
               人员详情
             </span>
-          </span> 
-          : 
+          </span>
+          :
           <Button type="primary" block onClick={this.showModal}>人员详情</Button>
         }
-        
+
         <Modal
           title={modalTitle}
           visible={visible}
@@ -338,8 +338,8 @@ class PeopleDetail extends Component {
               </div>
             </Form>
           ) : (
-            <span>暂无数据</span>
-          )}
+              <span>暂无数据</span>
+            )}
         </Modal>
       </>
     );

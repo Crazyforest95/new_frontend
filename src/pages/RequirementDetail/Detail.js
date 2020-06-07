@@ -11,7 +11,6 @@ import { getToken } from '@/utils/authority';
 const { Title, Text } = Typography;
 
 @connect(({ requirementManagement, loading }) => ({
-  // detail : requirementManagement.project_detail
   // loading: loading.effects['requirementManagement/getDetail']
 }))
 @Form.create()
@@ -41,23 +40,6 @@ class Detail extends PureComponent {
   refreshPage = () => {
     window.location.reload(false);
   }
-
-  getDetail = () => {
-    console.log('geeting detail...')
-    const { dispatch } = this.props;
-
-    const urlParams = new URL(window.location.href);
-    const path = urlParams.pathname;
-    const array = path.split("/");
-    const id = array[array.length - 1];
-    dispatch({
-      type: 'requirementManagement/getDetail',
-      payload: {
-        id,
-        schema: 'OfferDetailSchema',
-      },
-    });
-  };
 
   render() {
     const urlParams = new URL(window.location.href);

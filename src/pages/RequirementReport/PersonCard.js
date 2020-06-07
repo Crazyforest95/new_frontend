@@ -8,6 +8,9 @@ export default class PersonCard extends React.PureComponent {
   state = {
     isSelected: false,
   };
+  componentDidMount() {
+    this.checkSelected();
+  }
 
   nameClicked = () => {
     const { isSelected } = this.state;
@@ -41,9 +44,6 @@ export default class PersonCard extends React.PureComponent {
     const { personData } = this.props;
     const { idx } = this.props;
     const { isSelected } = this.state;
-
-    this.checkSelected();
-
     const selectedClass = [classes.personDataCard, classes.selected];
 
     return (
@@ -79,8 +79,9 @@ export default class PersonCard extends React.PureComponent {
                 强烈推荐
               </span>
             </span>
-              <Text style={{ marginRight: 20 }}>推荐人：{personData.recommend_person}</Text>
-              <Text>推荐时间: {personData.recommend_time}</Text>
+            
+            <Text style={{ marginRight: 20 }}>推荐人：{personData.recommend_person}</Text>
+            <Text>推荐时间: {personData.recommend_time}</Text>
           </React.Fragment>
         }
         // style={{ border: '2px solid #2979ff', marginBottom: 15, overflow: 'hidden' }}

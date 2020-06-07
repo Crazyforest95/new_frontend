@@ -5,6 +5,7 @@ export default {
   'menu.resumeDetails': '简历详情',
   'menu.requirementManagement': '需求管理',
   'menu.requirementDetail': '需求详情',
+  'menu.requirementReport': '需求报告',
   'menu.peopleManagement': '人员管理',
   'menu.serviceManagement': '结算管理',
   'menu.serviceManagement.manHourManagement': '工时管理',

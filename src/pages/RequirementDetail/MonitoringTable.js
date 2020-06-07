@@ -45,7 +45,8 @@ export default class MonitoringTable extends React.PureComponent {
     const emptylines = []
     if (currentTableData.length < 5) {
       for (var i = 0; i < (5 - currentTableData.length); i++) {
-        emptylines.push(<tr>&nbsp;</tr>);
+        // emptylines.push(<tr key={i}>&nbsp;</tr>);
+        emptylines.push(<tr key={i}></tr>);
       }
     }
 

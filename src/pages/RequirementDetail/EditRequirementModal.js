@@ -12,8 +12,7 @@ const { TextArea } = Input
 @Form.create()
 
 @connect(({ loading }) => ({
-  // loading: loading.effects['requirementManagement/update'], // 是否加载loading
-  loading: loading.effects['requirementManagement/getDetail']
+  loading: loading.effects['requirementManagement/update'], // 是否加载loading
 }))
 
 export default class EditRequirementModal extends React.PureComponent {

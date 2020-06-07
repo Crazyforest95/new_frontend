@@ -399,8 +399,8 @@ class PeopleManagement extends PureComponent {
             <div>
               <div style={{ display: 'flex', flex: 1, maxWidth: 800 }}>
                 <div>
-                  {Object.keys(searchValue).map(item => (
-                    <Tag>{`${searchLable[item]}:${searchValue[item]}`}</Tag>
+                  {Object.keys(searchValue).map((item, i) => (
+                    <Tag key={i}>{`${searchLable[item]}:${searchValue[item]}`}</Tag>
                   ))}
                 </div>
                 <Search

@@ -83,18 +83,18 @@ class RequirementDetail extends Component {
       let rowData = [];
       for (let j = 0; j < 7; j++) {
         if (i === 0 && j < 3) {
-          rowData.push({
+          await rowData.push({
             online: true,
             name: "小明"
           })
         } else {
-          rowData.push({
+          await rowData.push({
             online: false,
             name: "小明"
           })
         }
       }
-      data.push(rowData);
+      await data.push(rowData);
     }
     this.setState({ writtenTableData: data });
     this.getLogs(this.props.todayDate);

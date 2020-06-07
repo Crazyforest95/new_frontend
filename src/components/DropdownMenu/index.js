@@ -6,8 +6,8 @@ class DropdownMenu extends PureComponent {
   menu = menuList => {
     return (
       <Menu>
-        {menuList.map(item => (
-          <Menu.Item>{item}</Menu.Item>
+        {menuList.map((item, i) => (
+          <Menu.Item key={i}>{item}</Menu.Item>
         ))}
       </Menu>
     );

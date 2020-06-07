@@ -165,8 +165,6 @@ class Add extends React.Component {
     const prop = this.props;
     const { resetFields } = prop.form;
     const { onSuccess } = this.props;
-    console.log('props: ', this.props)
-
     await this.setState({
       visible: false,
     });
